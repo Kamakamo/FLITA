@@ -34,7 +34,7 @@ def fill_sets():
     return bin_set, dec_set
 
 def print_sets(sets):
-    for bin_num, dec_num in zip(sets[0], sets[1]):
+    for bin_num, dec_num in zip(sorted(sets[0]), sorted(sets[1])):
         print(f"{bin_num} (в двоичной) = {dec_num} (в десятичной)")
 
 def choice():
