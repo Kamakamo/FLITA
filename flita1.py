@@ -19,8 +19,8 @@ def fill_sets():
                 print("Количество чисел должно быть больше нуля.")
         except ValueError:
             print("Введите корректное число.")
-    bin_set = set()
-    dec_set = set()
+    bin_set = list()
+    dec_set = list()
     for _ in range(size):
         bin_num=input("Введите двоичное число: ")
         while not is_binary(bin_num):
@@ -29,12 +29,13 @@ def fill_sets():
         bin_num = int(bin_num)
         if bin_num in bin_set:
             print("Вы уже добавляли данное число")
-        bin_set.add(bin_num)
-        dec_set.add(convert(bin_num))
+        else:
+            bin_set.append(bin_num)
+            dec_set.append(convert(bin_num))
     return bin_set, dec_set
 
 def print_sets(sets):
-    for bin_num, dec_num in zip(sorted(sets[0]), sorted(sets[1])):
+    for bin_num, dec_num in zip(sets[0], sets[1]):
         print(f"{bin_num} (в двоичной) = {dec_num} (в десятичной)")
 
 def choice():
